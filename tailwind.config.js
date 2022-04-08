@@ -6,6 +6,12 @@ module.exports = {
         './index.html',
     ],
     theme: {
+        extend: {
+            colors: {
+                'cinza-claro': '#1f242f',
+                'cinza-escuro': '#171e28',
+            },
+        }
         // ...
     }
     // ...
