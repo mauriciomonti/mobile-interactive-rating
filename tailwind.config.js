@@ -1,12 +1,12 @@
 module.exports = {
-    purge: [],
-    darkMode: false,
+    content: [
+        // Example content paths...
+        './components/**/*.{html,js}',
+        './pages/**/*.{html,js}',
+        './index.html',
+    ],
     theme: {
-        extend: {},
-    },
-    variants: {
-        extends: {},
-
-    },
-    plugins: [],
+        // ...
+    }
+    // ...
 }
