@@ -11,9 +11,6 @@
 
     <title>Frontend Mentor | Interactive rating component</title>
 
-    <script type="text/javascript" src="node_modules/jquery/src/jquery.js">
-    </script>
-
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
     <!--
     <style>
@@ -27,6 +24,10 @@
         }
     </style>
     -->
+
+    <!-- Adicionando biblioteca do jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
 </head>
 
 <!-- <body class="w-full h-full bg-black"> -->
@@ -56,35 +57,48 @@
                     <span class="text-2xl mt-6 text-white font-medium">How did we do ?</span>
                     <span class="text-sm mt-2 text-white font-normal opacity-50">Please let us know how we did with yout support request. All feedback is appreciated to help us improve our oferring!</div>
                     <!-- <div class="flex items-center space-x-6"> -->
-                    <div class="flex items-center space-x-5 ml-8 mr-10 my-6">
+                    <div id="showStars" class="flex items-center space-x-5 ml-8 mr-10 my-6">
+                    <!-- 
                         <button type="btnEvaluate" class="h-12 w-12 bg-[#282e39] rounded-full grid place-items-center transform hover:bg-orange-500 transition-colors duration-200 ease-in-out">
                             <h4 class="text-sm text-white font-normal opacity-50">1</h4>
                         </button>
-                        <div type="btnEvaluate" class="h-12 w-12 bg-[#282e39] rounded-full grid place-items-center"><h4 class="text-sm text-white font-normal opacity-50">2</h4></div>
-                        <div type="btnEvaluate" class="h-12 w-12 bg-[#282e39] rounded-full grid place-items-center"><h4 class="text-sm text-white font-normal opacity-50">3</h4></div>
-                        <div type="btnEvaluate" class="h-12 w-12 bg-[#282e39] rounded-full grid place-items-center"><h4 class="text-sm text-white font-normal opacity-50">4</h4></div>
-                        <div type="btnEvaluate" class="h-12 w-12 bg-[#282e39] rounded-full grid place-items-center"><h4 class="text-sm text-white font-normal opacity-50">5</h4></div>
+                    -->
                     </div>
 
                     <div class="flex items-center ml-8 mr-10 my-6">
                         <!-- tracking-widest = espaçamento entre as letras -->
-                        <button class="h-12 w-full bg-orange-500 rounded-full grid place-items-center"><h4 class="text-sm text-white font-semibold tracking-widest">SUBMIT</h4></button>
+                        <button class="text-sm text-white font-semibold tracking-widest h-12 w-full bg-orange-500 rounded-full grid place-items-center transform hover:text-orange-500 hover:bg-white transition-colors duration-200 ease-in-out">SUBMIT
+                            <!-- <h4 id="textSubmit" class="text-sm text-white font-semibold tracking-widest transform hover:text-orange-500 transition-colors duration-200 ease-in-out">SUBMIT</h4> -->
+                        </button>
                     </div>
 
+                    <!-- Script responsavel pelas função das notas -->
                     <script>
-                        $(document).ready(function(){
-                            alert("aaaa");
+                        /* Classes iniciais dos botões */
+                        btnInicialClasses = 'h-12 w-12 bg-[#282e39] rounded-full grid place-items-center transform hover:bg-orange-500 transition-colors duration-200 ease-in-out';
+                        btnClickedClasses = 'h-12 w-12 bg-gray-400 rounded-full grid place-items-center';
+                        
+                        // Adiciona as 5 estrelas
+                        for (let index = 1; index < 6; index++) {
+                            stringHtml = '<button id="btnStar' + index + '" type="btnEvaluate" class="' + btnInicialClasses + '">';
+                            stringHtml += '<h4 class="text-sm text-white font-normal opacity-50">' + index + '</h4>';
+                            stringHtml += '</button>';
+                            /* transform hover:bg-orange-500 transition-colors duration-200 ease-in-out = serve para adicionar o efeito de mudança de cor quando passa o mouse */
+                            $("#showStars").append(stringHtml);
+                        }
+
+                        /* Armazena o id Anterior */
+                        idAnterior = "Start";
+                        /* Função executa quando algum botão de numeros é clicado */
+                        $('button[type="btnEvaluate"]').click(function(){
+                            if ($(this).attr('id') != idAnterior && idAnterior != "Start")
+                            {
+                                $("#" + idAnterior).attr('class', btnInicialClasses)
+                            }
+                            $(this).attr('class', btnClickedClasses)
+                            idAnterior = $(this).attr('id');
                         });
                     </script>
-
-
-                    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
-                        $(document).ready(function(){
-                            alert("aaaa");
-                        });
-                    </script>
-
-
                 </div>
             </div>
         </div>
