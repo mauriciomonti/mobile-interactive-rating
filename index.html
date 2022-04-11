@@ -11,6 +11,9 @@
 
     <title>Frontend Mentor | Interactive rating component</title>
 
+    <script type="text/javascript" src="node_modules/jquery/src/jquery.js">
+    </script>
+
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
     <!--
     <style>
@@ -33,25 +36,55 @@
     <!-- Configura o background preto -->
     <div class="p-10 min-h-screen flex items-center justify-center bg-black">
         <!-- Tamanho do Retangulo -->
-        <div class="h-28 w-28 relative">
+        <div class="h-96 w-96 relative">
             <!-- Configura o arredondamento do retangulo e seu degrade -->
             <!-- Position absolute significa que o elemento sobrepoe todos atrás -->
-            <div class="absolute inset-0 bg-gradient-to-tr from-cinza-escuro to-cinza-claro rounded-[10px]">
+            <div class="absolute inset-0 bg-gradient-to-tr from-cinza-escuro to-cinza-claro rounded-[30px]">
                 <!-- Cria as 4 linhas com distancimanentos de margem -->
-                <div class="flex flex-col ml-3 mt-2">
+                <div class="flex flex-col ml-8 mt-8 mr-4">
                     <!-- Separa em colunas para a estrela ficar na primeira -->
                     <div class="flex flex-row">
                         <!-- Separa em colunas para a estrela ficar na primeira de forma circular -->
-                        <div class="grid place-items-center h-5 w-5 bg-[#282e39] inset-0 rounded-full">
+                        <div class="grid place-items-center h-12 w-12 bg-[#282e39] inset-0 rounded-full">
                             <!-- SVG modificado para ficar pequeno -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 fill-current text-orange-400" viewBox="0 0 20 20" fill="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 fill-current text-orange-400" viewBox="0 0 20 20" fill="currentColor">
                             <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 0 0 .95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 0 0-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 0 0-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 0 0-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 0 0 .951-.69l1.07-3.292z"/>
                         </svg>
                         </div>
                     </div>
-                    <span>How did We do ?</span>
-                    <div>03</div>
-                    <div>04</div>
+                    <!-- text-2x1 = tamanho, mt-6 = afastamento esquerda, font-medium = grossura da fonte -->
+                    <span class="text-2xl mt-6 text-white font-medium">How did we do ?</span>
+                    <span class="text-sm mt-2 text-white font-normal opacity-50">Please let us know how we did with yout support request. All feedback is appreciated to help us improve our oferring!</div>
+                    <!-- <div class="flex items-center space-x-6"> -->
+                    <div class="flex items-center space-x-5 ml-8 mr-10 my-6">
+                        <button type="btnEvaluate" class="h-12 w-12 bg-[#282e39] rounded-full grid place-items-center transform hover:bg-orange-500 transition-colors duration-200 ease-in-out">
+                            <h4 class="text-sm text-white font-normal opacity-50">1</h4>
+                        </button>
+                        <div type="btnEvaluate" class="h-12 w-12 bg-[#282e39] rounded-full grid place-items-center"><h4 class="text-sm text-white font-normal opacity-50">2</h4></div>
+                        <div type="btnEvaluate" class="h-12 w-12 bg-[#282e39] rounded-full grid place-items-center"><h4 class="text-sm text-white font-normal opacity-50">3</h4></div>
+                        <div type="btnEvaluate" class="h-12 w-12 bg-[#282e39] rounded-full grid place-items-center"><h4 class="text-sm text-white font-normal opacity-50">4</h4></div>
+                        <div type="btnEvaluate" class="h-12 w-12 bg-[#282e39] rounded-full grid place-items-center"><h4 class="text-sm text-white font-normal opacity-50">5</h4></div>
+                    </div>
+
+                    <div class="flex items-center ml-8 mr-10 my-6">
+                        <!-- tracking-widest = espaçamento entre as letras -->
+                        <button class="h-12 w-full bg-orange-500 rounded-full grid place-items-center"><h4 class="text-sm text-white font-semibold tracking-widest">SUBMIT</h4></button>
+                    </div>
+
+                    <script>
+                        $(document).ready(function(){
+                            alert("aaaa");
+                        });
+                    </script>
+
+
+                    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
+                        $(document).ready(function(){
+                            alert("aaaa");
+                        });
+                    </script>
+
+
                 </div>
             </div>
         </div>
