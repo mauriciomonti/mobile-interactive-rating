@@ -34,7 +34,7 @@
                     </div>
 
                     <!-- <div class="grid place-items-center h-11 w-auto bg-[#282e39] rounded-full">You selected 4 out of 5 -->
-                    <span class="grid place-items-center mt-6 h-auto w-auto text-orange-400 bg-[#282e39] rounded-full opacity-75">&nbsp&nbspYou selected 4 out of 5&nbsp&nbsp</span>
+                    <span class="grid place-items-center mt-6 h-auto w-auto text-orange-400 bg-[#282e39] rounded-full opacity-75">&nbsp&nbspYou selected <?php echo $_POST['botaoClicado'];?> out of 5&nbsp&nbsp</span>
 
                     <!-- text-2x1 = tamanho, mt-6 = afastamento esquerda, font-medium = grossura da fonte -->
                     <span class="text-2xl mt-6 text-white font-medium opacity-90">Thank You !</span>

@@ -12,7 +12,7 @@
     <title>Frontend Mentor | Interactive rating component</title>
 
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-    <!--
+    <!-- 
     <style>
         .attribution {
             font-size: 11px;
@@ -27,15 +27,11 @@
 
     <!-- Adicionando biblioteca do jquery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
-
-
 </head>
 
 <!-- <body class="w-full h-full bg-black"> -->
 
 <body>
-
     <!-- Configura o background preto -->
     <div class="p-10 min-h-screen flex items-center justify-center bg-black">
         <!-- Tamanho do Retangulo -->
@@ -69,17 +65,17 @@
                             </button>
                         -->
                         </div>
-
                         
                     <form action="thank_you.php" method="POST">
+
+                        <input type="hidden" id="botaoClicado" name="botaoClicado" class="botaoClicado">
 
                         <div class="flex items-center ml-8 mr-10 my-6">
                             <!-- tracking-widest = espaçamento entre as letras -->
                             <button id="btnSubmit" class="text-sm text-white font-semibold tracking-widest h-12 w-full bg-orange-500 rounded-full grid place-items-center transform hover:text-orange-500 hover:bg-white transition-colors duration-200 ease-in-out">SUBMIT
                                 <!-- <h4 id="textSubmit" class="text-sm text-white font-semibold tracking-widest transform hover:text-orange-500 transition-colors duration-200 ease-in-out">SUBMIT</h4> -->
                             </button>
-                        </div>
-
+                        </div>                     
                     </form>
 
                     <!-- Script responsavel pelas função das notas -->
@@ -101,6 +97,9 @@
                         idAnterior = "Start";
                         /* Função executa quando algum botão de numeros é clicado */
                         $('button[type="btnEvaluate"]').click(function(){
+
+                            $('#botaoClicado').val($(this).text());
+
                             if ($(this).attr('id') != idAnterior && idAnterior != "Start")
                             {
                                 $("#" + idAnterior).attr('class', btnInicialClasses)
@@ -109,27 +108,14 @@
                             idAnterior = $(this).attr('id');
                         });
                     </script>
-
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- 
-    <div class="h-32 w-32 relative">
-
-        <div class="absolute inset-0 bg-white opacity-25 rounded-lg shadow-2x1">
-
-
-        </div>
-
-    </div>
-    -->
-    <!-- 
     <div class="attribution">
-        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="#">Your Name Here</a>.
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="#">Maurício Oliveira Monti</a>.
     </div>
-     -->
 </body>
 
 </html>
