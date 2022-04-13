@@ -1,94 +1,122 @@
-# Frontend Mentor - Interactive rating component
+# Frontend Mentor - Interactive rating component solution
 
-![Design preview for the Interactive rating component coding challenge](./design/desktop-preview.jpg)
+This is a solution to the [Interactive rating component challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/interactive-rating-component-koxpeBUmI). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-## Welcome! 👋
+## Table of contents
 
-Thanks for checking out this front-end coding challenge.
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+## Overview
 
-**To do this challenge, you need a basic understanding of HTML, CSS and JavaScript.**
+### The challenge
 
-## The challenge
-
-Your challenge is to build out this interactive rating component and get it looking as close to the design as possible.
-
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
-
-Your users should be able to:
+Users should be able to:
 
 - View the optimal layout for the app depending on their device's screen size
 - See hover states for all interactive elements on the page
 - Select and submit a number rating
 - See the "Thank you" card state after submitting a rating
 
-Want some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the **#help** channel.
+### Screenshot
 
-## Where to find everything
+![](./screenshots/inicial-screen.png)
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design. 
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`. 
+![](./screenshots/thanks-screen.png)
 
-If you would like the design files (we provide Sketch & Figma versions) to inspect the design in more detail, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+### Links
 
-You will find all the required assets in the `/images` folder. The assets are already optimized.
+- Solution URL: [GitHub](https://github.com/mauriciomonti/mobile-interactive-rating)
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+## My process
 
-## Building your project
+### Built with
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+- HTML
+- Tailwindcss
+- Flexbox
+- Mobile-first workflow
+- [Jquery](https://releases.jquery.com/) - Jquery library
+- [Tailwind](https://tailwindcss.com/docs/installation) - Tailwindcss
+- [Styled Components](https://styled-components.com/) - For styles
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+### What I learned
 
-## Deploying your project
+This project helped me a lot to understand how the Tailwindcss front-end framework works, where I aimed to be able to create the layout using only this framework. I really liked it because it is very simple and works a lot with classes, and I also used some Jquery functionality to assign some effects to the buttons and pass on some information.
 
-As mentioned above, there are many ways to host your project for free. Our recommend hosts are:
+Submit button effects with Tailwindcss classes only:
+```html
+<button id="btnSubmit" class="text-sm text-white font-semibold tracking-widest h-12 w-full bg-orange-500 rounded-full grid place-items-center transform hover:text-orange-500 hover:bg-white transition-colors duration-200 ease-in-out">SUBMIT</button>
+```
+Modified colors to use with Tailwindcss:
+```css
+.proud-of-this-css {
+    theme: {
+        extend: {
+            colors: {
+                'cinza-claro': '#1f242f',
+                'cinza-escuro': '#171e28',
+            },
+        }
+        // ...
+    }
+}
+```
+Function to perform button color animation in Jquery using Tailwindcss classes:
+```js
+<!-- Script responsavel pelas função das notas -->
+<script>
+    /* Classes iniciais dos botões */
+    btnInicialClasses = 'h-12 w-12 bg-[#282e39] rounded-full grid place-items-center transform hover:bg-orange-500 transition-colors duration-200 ease-in-out';
+    btnClickedClasses = 'h-12 w-12 bg-gray-400 rounded-full grid place-items-center';
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+    // Adiciona as 5 estrelas
+    for (let index = 1; index < 6; index++) {
+        stringHtml = '<button id="btnStar' + index + '" type="btnEvaluate" class="' + btnInicialClasses + '">';
+        stringHtml += '<h4 class="text-sm text-white font-normal opacity-50">' + index + '</h4>';
+        stringHtml += '</button>';
+        /* transform hover:bg-orange-500 transition-colors duration-200 ease-in-out = serve para adicionar o efeito de mudança de cor quando passa o mouse */
+        $("#showStars").append(stringHtml);
+    }
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://medium.com/frontend-mentor/frontend-mentor-trusted-hosting-providers-bf000dfebe).
+    /* Armazena o id Anterior */
+    idAnterior = "Start";
+    /* Função executa quando algum botão de numeros é clicado */
+    $('button[type="btnEvaluate"]').click(function() {
 
-## Create a custom `README.md`
+        $('#botaoClicado').val($(this).text());
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+        if ($(this).attr('id') != idAnterior && idAnterior != "Start") {
+            $("#" + idAnterior).attr('class', btnInicialClasses)
+        }
+        $(this).attr('class', btnClickedClasses)
+        idAnterior = $(this).attr('id');
+    });
+</script>
+}
+```
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+### Continued development
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+I want to keep learning more and more about the Tailwind framework, I know it replaces many functions that would need Jquery.
 
-## Submitting your solution
+### Useful resources
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://medium.com/frontend-mentor/a-complete-guide-to-submitting-solutions-on-frontend-mentor-ac6384162248) for tips on how to do this.
+- [Center Elements with Tailwind CSS](https://daily-dev-tips.com/posts/center-elements-with-tailwind-css/) - This helped me figure out how to center an element inside a div. IVery useful in the future for organizing divs.
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
+- [Instaling Tailwind](https://www.youtube.com/watch?v=1qH3wAtX4So) - This video helped me to install and run tailwindcss.
 
-## Sharing your solution
+## Author
 
-There are multiple places you can share your solution:
-
-1. Share your solution page in the **#finished-projects** channel of the [Slack community](https://www.frontendmentor.io/slack). 
-2. Tweet [@frontendmentor](https://twitter.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in the tweet. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on other social channels like LinkedIn.
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
-
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
-
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
-
-## Got feedback for us?
-
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
-
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
-
-**Have fun building!** 🚀
+- LinkedIn - [Maurício Oliveira Monti](https://www.linkedin.com/in/maur%C3%ADcio-oliveira-monti-394086205/)
+- Frontend Mentor - [@mauriciomonti](https://www.frontendmentor.io/profile/mauriciomonti)
+- Github - [@mauriciomonti](https://github.com/mauriciomonti)
