@@ -5,35 +5,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- displays site properly based on user's device -->
-
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
     <link rel="stylesheet" href="main.css" />
-
     <title>Frontend Mentor | Interactive rating component</title>
-
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-    <!--
-    <style>
-        .attribution {
-            font-size: 11px;
-            text-align: center;
-        }
-        
-        .attribution a {
-            color: hsl(228, 45%, 44%);
-        }
-    </style>
-    -->
-
-    <!-- Adicionando biblioteca do jquery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
 
 </head>
 
 <!-- <body class="w-full h-full bg-black"> -->
 
 <body>
-
     <!-- Configura o background preto -->
     <div class="p-10 min-h-screen flex items-center justify-center bg-black">
         <!-- Tamanho do Retangulo -->
@@ -51,65 +34,22 @@
                     </div>
 
                     <!-- <div class="grid place-items-center h-11 w-auto bg-[#282e39] rounded-full">You selected 4 out of 5 -->
-                    <span class="grid place-items-center mt-6 h-auto w-auto text-orange-400 bg-[#282e39] rounded-full">&nbsp&nbspYou selected 4 out of 5&nbsp&nbsp</span>
+                    <span class="grid place-items-center mt-6 h-auto w-auto text-orange-400 bg-[#282e39] rounded-full opacity-75">&nbsp&nbspYou selected 4 out of 5&nbsp&nbsp</span>
 
                     <!-- text-2x1 = tamanho, mt-6 = afastamento esquerda, font-medium = grossura da fonte -->
-                    <span class="text-2xl mt-6 text-white font-medium">How did we do ?</span>
-                    <span class="text-sm mt-2 text-white font-normal opacity-50">Please let us know how we did with yout support request. All feedback is appreciated to help us improve our oferring!</div>
+                    <span class="text-2xl mt-6 text-white font-medium opacity-90">Thank You !</span>
+                    <span class="text-center mx-8 text-sm mt-6 text-white font-normal opacity-50">We appreciate you taking the time to give a rating. If you ever need more support, don't hesitate to get in touch!</div>
                     <!-- <div class="flex items-center space-x-6"> -->
-
-                    <div class="flex items-center ml-8 mr-10 my-6">
-                        <!-- tracking-widest = espaçamento entre as letras -->
-                        <button class="text-sm text-white font-semibold tracking-widest h-12 w-full bg-orange-500 rounded-full grid place-items-center transform hover:text-orange-500 hover:bg-white transition-colors duration-200 ease-in-out">SUBMIT</button>
-                    </div>
-
-                    <!-- Script responsavel pelas função das notas -->
-                    <script>
-                        /* Classes iniciais dos botões */
-                        btnInicialClasses = 'h-12 w-12 bg-[#282e39] rounded-full grid place-items-center transform hover:bg-orange-500 transition-colors duration-200 ease-in-out';
-                        btnClickedClasses = 'h-12 w-12 bg-gray-400 rounded-full grid place-items-center';
-                        
-                        // Adiciona as 5 estrelas
-                        for (let index = 1; index < 6; index++) {
-                            stringHtml = '<button id="btnStar' + index + '" type="btnEvaluate" class="' + btnInicialClasses + '">';
-                            stringHtml += '<h4 class="text-sm text-white font-normal opacity-50">' + index + '</h4>';
-                            stringHtml += '</button>';
-                            /* transform hover:bg-orange-500 transition-colors duration-200 ease-in-out = serve para adicionar o efeito de mudança de cor quando passa o mouse */
-                            $("#showStars").append(stringHtml);
-                        }
-
-                        /* Armazena o id Anterior */
-                        idAnterior = "Start";
-                        /* Função executa quando algum botão de numeros é clicado */
-                        $('button[type="btnEvaluate"]').click(function(){
-                            if ($(this).attr('id') != idAnterior && idAnterior != "Start")
-                            {
-                                $("#" + idAnterior).attr('class', btnInicialClasses)
-                            }
-                            $(this).attr('class', btnClickedClasses)
-                            idAnterior = $(this).attr('id');
-                        });
-                    </script>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- 
-    <div class="h-32 w-32 relative">
-
-        <div class="absolute inset-0 bg-white opacity-25 rounded-lg shadow-2x1">
-
-
-        </div>
-
-    </div>
-    -->
-    <!-- 
-    <div class="attribution">
-        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="#">Your Name Here</a>.
-    </div>
-     -->
+    <script>
+/*         $.get("index.html", function(name, time){
+            alert("Data: " + data + "\nStatus: " + status);
+        }); */
+    </script>
 </body>
 
 </html>

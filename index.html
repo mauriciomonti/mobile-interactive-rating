@@ -28,6 +28,8 @@
     <!-- Adicionando biblioteca do jquery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
+
+
 </head>
 
 <!-- <body class="w-full h-full bg-black"> -->
@@ -59,20 +61,26 @@
                     <span class="text-2xl mt-6 text-white font-medium">How did we do ?</span>
                     <span class="text-sm mt-2 text-white font-normal opacity-50">Please let us know how we did with yout support request. All feedback is appreciated to help us improve our oferring!</div>
                     <!-- <div class="flex items-center space-x-6"> -->
-                    <div id="showStars" class="flex items-center space-x-5 ml-8 mr-10 my-6">
-                    <!-- 
-                        <button type="btnEvaluate" class="h-12 w-12 bg-[#282e39] rounded-full grid place-items-center transform hover:bg-orange-500 transition-colors duration-200 ease-in-out">
-                            <h4 class="text-sm text-white font-normal opacity-50">1</h4>
-                        </button>
-                    -->
-                    </div>
 
-                    <div class="flex items-center ml-8 mr-10 my-6">
-                        <!-- tracking-widest = espaçamento entre as letras -->
-                        <button id="btnSubmit" class="text-sm text-white font-semibold tracking-widest h-12 w-full bg-orange-500 rounded-full grid place-items-center transform hover:text-orange-500 hover:bg-white transition-colors duration-200 ease-in-out">SUBMIT
-                            <!-- <h4 id="textSubmit" class="text-sm text-white font-semibold tracking-widest transform hover:text-orange-500 transition-colors duration-200 ease-in-out">SUBMIT</h4> -->
-                        </button>
-                    </div>
+                        <div id="showStars" class="flex items-center space-x-5 ml-8 mr-10 my-6">
+                        <!-- 
+                            <button type="btnEvaluate" class="h-12 w-12 bg-[#282e39] rounded-full grid place-items-center transform hover:bg-orange-500 transition-colors duration-200 ease-in-out">
+                                <h4 class="text-sm text-white font-normal opacity-50">1</h4>
+                            </button>
+                        -->
+                        </div>
+
+                        
+                    <form action="thank_you.php" method="POST">
+
+                        <div class="flex items-center ml-8 mr-10 my-6">
+                            <!-- tracking-widest = espaçamento entre as letras -->
+                            <button id="btnSubmit" class="text-sm text-white font-semibold tracking-widest h-12 w-full bg-orange-500 rounded-full grid place-items-center transform hover:text-orange-500 hover:bg-white transition-colors duration-200 ease-in-out">SUBMIT
+                                <!-- <h4 id="textSubmit" class="text-sm text-white font-semibold tracking-widest transform hover:text-orange-500 transition-colors duration-200 ease-in-out">SUBMIT</h4> -->
+                            </button>
+                        </div>
+
+                    </form>
 
                     <!-- Script responsavel pelas função das notas -->
                     <script>
@@ -101,21 +109,6 @@
                             idAnterior = $(this).attr('id');
                         });
                     </script>
-
-
-                    <script>
-
-                        $('#btnSubmit').click(function(){
-
-
-                            document.location = '/thank_you.html'
-
-                        });
-
-
-
-                    </script>
-
 
                 </div>
             </div>
